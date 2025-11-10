@@ -72,9 +72,9 @@ export const siteConfig = {
       degree: "Master Sciences de données et systèmes complexes",
       dateRange: "2024 - 2026",
       achievements: [
-        "Completed 500+ hours of coursework",
-        "Built 10+ portfolio projects",
-        "Specialized in React and Node.js",
+        "Plus de 500 heures de cours TP et TD.",
+        "Beaucoup de projets",
+        "Spécialisation en IA, Data Science, Machine Learning, Deep Learning, etc.",
       ],
     },
     {
