@@ -69,22 +69,22 @@ export const siteConfig = {
   education: [
     {
       school: "Université de Strasbourg",
-      degree: "Licence d'informatique",
-      dateRange: "2021 - 2024",
-      achievements: [
-        "Graduated Magna Cum Laude with 3.8 GPA",
-        "Dean's List all semesters",
-        "President of Computer Science Club",
-      ],
-    },
-    {
-      school: "Université de Strasbourg",
       degree: "Master Sciences de données et systèmes complexes",
       dateRange: "2024 - 2026",
       achievements: [
         "Completed 500+ hours of coursework",
         "Built 10+ portfolio projects",
         "Specialized in React and Node.js",
+      ],
+    },
+    {
+      school: "Université de Strasbourg",
+      degree: "Licence d'informatique",
+      dateRange: "2021 - 2024",
+      achievements: [
+        "Graduated Magna Cum Laude with 3.8 GPA",
+        "Dean's List all semesters",
+        "President of Computer Science Club",
       ],
     },
   ],
