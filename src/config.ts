@@ -9,15 +9,16 @@ export const siteConfig = {
     github: "https://github.com/musab01k",
   },
   aboutMe:
-    "Ici un long pavé pour me présenter et expliquer ce que je fais et ce que je suis passionné par.",
-  skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
+    "Étudiant en dernière année d’informatique, je cherche un stage de fin d’études en IA ou data science afin d’appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, la boxe Anglaise et l'intelligence artificielle.",
+  skills: ["Python", "C", "C++", "Java", "C#", "R", "SQL", "NoSQL", "PostgreSQL", "API REST", "Javascript"],
   projects: [
     {
-      name: "AI Dev Roundup Newsletter",
-      description:
-        "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
+      name: "Agent conversationnel LLM intégré à une carte interactive (AgentMap",
+      description: `Traitement de données géospatiales (Pandas) et classification automatique des requêtes.
+— Conversion des demandes en SQL via LLM et interrogation de la base par API.
+— Visualisation des résultats sur des cartes interactives.`,
       link: "https://aidevroundup.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+      skills: ["Python", "Dash", "PostgreSQL", "API REST"],
     },
     {
       name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
