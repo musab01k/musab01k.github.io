@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Musab Karatas",
-  title: "Data Scientist",
+  title: "Etudiant en dernière année de Master Informatique IA et Data Science",
   description: "Mon portfolio",
   accentColor: "#1d4ed8",
   social: {
@@ -37,33 +37,14 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "Tech Company",
-      title: "Senior Software Engineer",
-      dateRange: "Jan 2022 - Present",
+      company: "Stage à l’étranger, Turkish Aerospace Industries (TUSAS)",
+      title: "Stagiaire",
+      dateRange: "Juillet 2025",
       bullets: [
-        "Led development of microservices architecture serving 1M+ users",
-        "Reduced API response times by 40% through optimization",
-        "Mentored team of 5 junior developers",
-      ],
-    },
-    {
-      company: "Startup Inc",
-      title: "Full Stack Developer",
-      dateRange: "Jun 2020 - Dec 2021",
-      bullets: [
-        "Built and launched MVP product from scratch using React and Node.js",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Collaborated with product team to define technical requirements",
-      ],
-    },
-    {
-      company: "Digital Agency",
-      title: "Frontend Developer",
-      dateRange: "Aug 2018 - May 2020",
-      bullets: [
-        "Developed responsive web applications for 20+ clients",
-        "Improved site performance scores by 35% on average",
-        "Introduced modern JavaScript frameworks to legacy codebases",
+        "Participation à l’analyse et à l’exploitation des données provenant des systèmes internes",
+        "Identifier les tendances significatives, les corrélations entre diverses variables et les présenter de manière efficace",
+        "Préparer des rapports techniques et des recommandations exploitables basées sur ses analyses",
+        "Contribuer au développement d’un tableau de bord interactif pour la visualisation et l’analyse des données"
       ],
     },
   ],
