@@ -10,14 +10,14 @@ export const siteConfig = {
   },
   aboutMe:
     "Étudiant en dernière année d’informatique, je cherche un stage de fin d’études en IA ou data science afin d’appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, la boxe Anglaise et l'intelligence artificielle.",
-  skills: ["Python", "C", "C++", "Java", "C#", "R", "SQL", "NoSQL", "PostgreSQL", "API REST", "Javascript"],
+  skills: ["Python", "C", "C++", "Java", "C#", "R", "SQL", "NoSQL", "PostgreSQL", "API REST", "Javascript", "Seaborn", "Matplotlib"],
   projects: [
     {
       name: "Agent conversationnel LLM intégré à une carte interactive (AgentMap)",
       description: `Traitement de données géospatiales (Pandas) et classification automatique des requêtes.
 — Conversion des demandes en SQL via LLM et interrogation de la base par API.
 — Visualisation des résultats sur des cartes interactives.`,
-      link: "https://aidevroundup.com/?ref=devportfolio",
+      link: "",
       skills: ["Python", "Dash", "PostgreSQL", "API REST"],
     },
     {
@@ -25,7 +25,7 @@ export const siteConfig = {
       description:
         `onception d’un réseau de neurones (CNN) pour analyser les images et déterminer la présence de cancer.
 ⇒ Modèle permettant de trier les scans pour mettre en avant les cas à risque et alléger la charge aux médecins.`,
-      link: "https://fullstackextensions.com/?ref=devportfolio",
+      link: "https://github.com/musab01k/Breast-Cancer/tree/main",
       skills: ["Python", "CNN", "TensorFlow", "Keras"],
     },
     {
@@ -34,8 +34,8 @@ export const siteConfig = {
         `Conception d’un script d’envoi automatique de candidatures, intégrant l’API
 OpenAI pour la génération dynamique de mails et lettres de motivation personnalisés, envoyés automatiquement vers
 un dataset d’adresses e-mail collectées.`,
-      link: "https://extensionkit.io/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+      link: "",
+      skills: [],
     },
   ],
   experience: [
