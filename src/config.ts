@@ -37,6 +37,15 @@ un dataset d’adresses e-mail collectées.`,
       link: "",
       skills: [],
     },
+
+    {
+      name: "Battery Life Span",
+      description:
+        `Conception de plusieurs modèles de machine learning qui permettent de
+         prédire la durée de vie d'une batterie en fonction de ses caractéristiques.`,
+      link: "https://github.com/musab01k/Battery-Life-Span",
+      skills: ["Python", "Machine Learning", "matplotlib", "numpy", "pandas"],
+    },
   ],
   experience: [
     {
