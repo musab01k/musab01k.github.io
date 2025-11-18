@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Musab Karatas",
-  title: "Etudiant en dernière année de Master Informatique axé sur l'IA et la Data Science",
+  title: "Etudiant en dernière année de Master Informatique axée sur l'IA et la Data Science",
   description: "Mon portfolio",
   accentColor: "#1d4ed8",
   social: {
@@ -9,7 +9,7 @@ export const siteConfig = {
     github: "https://github.com/musab01k",
   },
   aboutMe:
-    "Étudiant en dernière année d’informatique, je cherche un stage de fin d’études en IA ou data science afin d’appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, la boxe Anglaise et l'intelligence artificielle.",
+    "Étudiant en dernière année d’informatique, je cherche un stage de fin d’études en IA ou data science afin d’appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, l'intelligence artificielle, et l'energie.",
   skills: ["Python", "C", "C++", "Java", "C#", "R", "SQL", "NoSQL", "PostgreSQL", "API REST", "Javascript", "Seaborn", "Matplotlib"],
   projects: [
     {
