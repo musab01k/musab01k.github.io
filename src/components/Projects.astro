@@ -9,8 +9,8 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Projets
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900" data-content="section.projects">
+              Projects
             </h2>
             <div
               class="w-[75px] h-[5px] mt-2 rounded-full"
@@ -66,13 +66,14 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                           >
                             0{index + 1}
                           </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1" data-content={`project.name.${index}`}>
                             {project.name}
                           </h3>
                         </div>
 
                         <p
                           class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
+                          data-content={`project.description.${index}`}
                         >
                           {project.description}
                         </p>

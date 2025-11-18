@@ -1,9 +1,14 @@
 ---
 import { siteConfig } from "../config";
+import { getTranslations } from "../i18n";
+import type { Language } from "../i18n";
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+
+// Default to English, will be updated by client script
+const t = getTranslations('en' as Language);
 ---
 
 <header
@@ -11,13 +16,13 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
 >
   <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
+    <ul class="flex items-center gap-8 justify-center relative">
       <li>
         <a
           href="#about"
           class="text-gray-700 hover:text-black transition-colors font-medium"
         >
-          À propos
+          <span data-i18n="nav.about">{t.nav.about}</span>
         </a>
       </li>
       {
@@ -27,7 +32,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#projects"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Projets
+              <span data-i18n="nav.projects">{t.nav.projects}</span>
             </a>
           </li>
         )
@@ -39,7 +44,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#experience"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Expérience
+              <span data-i18n="nav.experience">{t.nav.experience}</span>
             </a>
           </li>
         )
@@ -51,16 +56,128 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#education"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Education
+              <span data-i18n="nav.education">{t.nav.education}</span>
             </a>
           </li>
         )
       }
+      <li class="absolute right-0">
+        <button
+          id="language-toggle"
+          class="text-gray-700 hover:text-black transition-colors font-medium px-3 py-1 rounded-md hover:bg-gray-100 flex items-center gap-2"
+          aria-label="Change language"
+        >
+          <span id="language-flag">🇫🇷</span>
+          <span id="language-display" class="font-bold">FR</span>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
 
-<script>
+<script is:inline>
+  // Language management
+  const STORAGE_KEY = 'portfolio-language';
+  
+  function getLanguage() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'fr' || stored === 'en') return stored;
+    // Default to English for new visitors
+    return 'en';
+  }
+  
+  function setLanguage(lang) {
+    localStorage.setItem(STORAGE_KEY, lang);
+    document.documentElement.lang = lang;
+    window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
+  }
+  
+  // Translations
+  const translations = {
+    fr: {
+      nav: { about: 'À propos', projects: 'Projets', experience: 'Expérience', education: 'Éducation' },
+      hero: { greeting: 'Salut! 👋', intro: 'Je suis' },
+      sections: { about: 'À propos de moi', projects: 'Projets', experience: 'Expérience', education: 'Éducation' }
+    },
+    en: {
+      nav: { about: 'About', projects: 'Projects', experience: 'Experience', education: 'Education' },
+      hero: { greeting: 'Hi! 👋', intro: "I'm" },
+      sections: { about: 'About Me', projects: 'Projects', experience: 'Experience', education: 'Education' }
+    }
+  };
+  
+  function updateLanguage(lang) {
+    const t = translations[lang];
+    
+    // Update navigation - only if elements exist
+    const i18nElements = document.querySelectorAll('[data-i18n]');
+    if (i18nElements.length > 0) {
+      i18nElements.forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (!key) return;
+        const keys = key.split('.');
+        let value = t;
+        for (const k of keys) {
+          if (value && value[k]) {
+            value = value[k];
+          } else {
+            return; // Key not found, skip
+          }
+        }
+        if (value) el.textContent = value;
+      });
+    }
+    
+    // Update button - show the target language (opposite of current)
+    const langDisplay = document.getElementById('language-display');
+    const langFlag = document.getElementById('language-flag');
+    const targetLang = lang === 'fr' ? 'en' : 'fr';
+    if (langDisplay) langDisplay.textContent = targetLang.toUpperCase();
+    if (langFlag) langFlag.textContent = targetLang === 'fr' ? '🇫🇷' : '🇬🇧';
+  }
+  
+  function triggerContentUpdate(lang) {
+    // Trigger content update
+    window.dispatchEvent(new CustomEvent('contentupdate', { detail: { lang } }));
+  }
+  
+  // Initialize - ensure it runs after DOM is ready
+  function initLang() {
+    const currentLang = getLanguage();
+    document.documentElement.lang = currentLang;
+    // Small delay to ensure DOM is fully ready
+    requestAnimationFrame(() => {
+      updateLanguage(currentLang);
+      triggerContentUpdate(currentLang);
+    });
+  }
+  
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLang);
+  } else {
+    // DOM already ready, run immediately
+    initLang();
+  }
+  
+  // Toggle button
+  const langToggle = document.getElementById('language-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      const newLang = getLanguage() === 'fr' ? 'en' : 'fr';
+      setLanguage(newLang);
+      updateLanguage(newLang);
+      triggerContentUpdate(newLang);
+    });
+  }
+  
+  // Listen for language changes from other sources
+  window.addEventListener('languagechange', (e) => {
+    updateLanguage(e.detail.lang);
+    triggerContentUpdate(e.detail.lang);
+  });
+  
+  // Scroll handler
   window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
     if (window.scrollY > 100) {

@@ -35,5 +35,130 @@ import "../styles/global.css";
       <Education />
     </section>
     <Footer />
+    <script is:inline>
+      // Content translation system
+      const contentData = {
+        fr: {
+          title: "Etudiant en dernière année de Master Informatique axée sur l'IA et la Data Science",
+          aboutMe: "Étudiant en dernière année d'informatique, je cherche un stage de fin d'études en IA ou data science afin d'appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, l'intelligence artificielle, et l'energie.",
+          sections: { about: 'À propos de moi', projects: 'Projets', experience: 'Expérience', education: 'Éducation' },
+          projects: [
+            { name: "Agent conversationnel LLM intégré à une carte interactive (AgentMap)", description: "Traitement de données géospatiales (Pandas) et classification automatique des requêtes.\n— Conversion des demandes en SQL via LLM et interrogation de la base par API.\n— Visualisation des résultats sur des cartes interactives." },
+            { name: "Classification du cancer du sein à partir de scans médicaux ", description: "Conception d'un réseau de neurones (CNN) pour analyser les images et déterminer la présence de cancer.\n⇒ Modèle permettant de trier les scans pour mettre en avant les cas à risque et alléger la charge aux médecins." },
+            { name: "Cand Auto (projet personnel)", description: "Conception d'un script d'envoi automatique de candidatures, intégrant l'API\nOpenAI pour la génération dynamique de mails et lettres de motivation personnalisés, envoyés automatiquement vers\nun dataset d'adresses e-mail collectées." },
+            { name: "Battery Life Span", description: "Conception de plusieurs modèles de machine learning qui permettent de\n         prédire la durée de vie d'une batterie en fonction de ses caractéristiques." }
+          ],
+          experience: [
+            {
+              title: "Stagiaire",
+              company: "Stage à l'étranger, Turkish Aerospace Industries (TUSAS)",
+              bullets: [
+                "Participation à l'analyse et à l'exploitation des données provenant des systèmes internes",
+                "Identifier les tendances significatives, les corrélations entre diverses variables et les présenter de manière efficace",
+                "Préparer des rapports techniques et des recommandations exploitables basées sur ses analyses",
+                "Contribuer au développement d'un tableau de bord interactif pour la visualisation et l'analyse des données"
+              ]
+            }
+          ],
+          education: [
+            { degree: "Master Sciences de données et systèmes complexes", school: "Université de Strasbourg" },
+            { degree: "Licence d'informatique", school: "Université de Strasbourg" }
+          ]
+        },
+        en: {
+          title: "Final year Master's student in Computer Science focused on AI and Data Science",
+          aboutMe: "Final year computer science student, seeking an end-of-studies internship in AI or data science to apply my skills in machine learning and data analysis to concrete projects. I am interested in aeronautics, avionics, space, artificial intelligence, and energy.",
+          sections: { about: 'About Me', projects: 'Projects', experience: 'Experience', education: 'Education' },
+          projects: [
+            { name: "LLM conversational agent integrated into an interactive map (AgentMap)", description: "Geospatial data processing (Pandas) and automatic query classification.\n— Converting requests to SQL via LLM and querying the database via API.\n— Visualizing results on interactive maps." },
+            { name: "Breast cancer classification from medical scans", description: "Design of a neural network (CNN) to analyze images and determine the presence of cancer.\n⇒ Model that sorts scans to highlight at-risk cases and reduce the workload for doctors." },
+            { name: "Cand Auto (personal project)", description: "Design of an automatic job application sending script, integrating the\nOpenAI API for dynamic generation of personalized emails and cover letters, automatically sent to\na dataset of collected email addresses." },
+            { name: "Battery Life Span", description: "Design of several machine learning models that allow\n         predicting battery lifespan based on its characteristics." }
+          ],
+          experience: [
+            {
+              title: "Intern",
+              company: "Internship abroad, Turkish Aerospace Industries (TUSAS)",
+              bullets: [
+                "Participated in the analysis and exploitation of data from internal systems",
+                "Identified significant trends, correlations between various variables and presented them effectively",
+                "Prepared technical reports and actionable recommendations based on analyses",
+                "Contributed to the development of an interactive dashboard for data visualization and analysis"
+              ]
+            }
+          ],
+          education: [
+            { degree: "Master's in Data Science and Complex Systems", school: "University of Strasbourg" },
+            { degree: "Bachelor's in Computer Science", school: "University of Strasbourg" }
+          ]
+        }
+      };
+      
+      function updateContent(lang) {
+        const content = contentData[lang];
+        if (!content) return;
+        
+        // Update title
+        const titleEl = document.querySelector('[data-content="title"]');
+        if (titleEl) titleEl.textContent = content.title;
+        
+        // Update aboutMe
+        const aboutEl = document.querySelector('[data-content="aboutMe"]');
+        if (aboutEl) aboutEl.textContent = content.aboutMe;
+        
+        // Update section titles
+        const sectionAbout = document.querySelector('[data-content="section.about"]');
+        if (sectionAbout) sectionAbout.textContent = content.sections.about;
+        
+        const sectionProjects = document.querySelector('[data-content="section.projects"]');
+        if (sectionProjects) sectionProjects.textContent = content.sections.projects;
+        
+        const sectionExperience = document.querySelector('[data-content="section.experience"]');
+        if (sectionExperience) sectionExperience.textContent = content.sections.experience;
+        
+        const sectionEducation = document.querySelector('[data-content="section.education"]');
+        if (sectionEducation) sectionEducation.textContent = content.sections.education;
+        
+        // Update projects
+        for (let i = 0; i < content.projects.length; i++) {
+          const nameEl = document.querySelector(`[data-content="project.name.${i}"]`);
+          if (nameEl && content.projects[i]) nameEl.textContent = content.projects[i].name;
+          
+          const descEl = document.querySelector(`[data-content="project.description.${i}"]`);
+          if (descEl && content.projects[i]) descEl.textContent = content.projects[i].description;
+        }
+        
+        // Update experience
+        for (let i = 0; i < content.experience.length; i++) {
+          const titleEl = document.querySelector(`[data-content="exp.title.${i}"]`);
+          if (titleEl && content.experience[i]) titleEl.textContent = content.experience[i].title;
+          
+          const companyEl = document.querySelector(`[data-content="exp.company.${i}"]`);
+          if (companyEl && content.experience[i]) companyEl.textContent = content.experience[i].company;
+          
+          // Update bullets
+          content.experience[i].bullets.forEach((bullet, bulletIndex) => {
+            const bulletEl = document.querySelector(`[data-content="exp.bullet.${i}.${bulletIndex}"]`);
+            if (bulletEl) bulletEl.textContent = bullet;
+          });
+        }
+        
+        // Update education
+        for (let i = 0; i < content.education.length; i++) {
+          const degreeEl = document.querySelector(`[data-content="edu.degree.${i}"]`);
+          if (degreeEl && content.education[i]) degreeEl.textContent = content.education[i].degree;
+          
+          const schoolEl = document.querySelector(`[data-content="edu.school.${i}"]`);
+          if (schoolEl && content.education[i]) schoolEl.textContent = content.education[i].school;
+        }
+      }
+      
+      // Listen for content updates from Header script
+      window.addEventListener('contentupdate', (e) => {
+        updateContent(e.detail.lang);
+      });
+      
+      // No initial update needed here - Header script handles it
+    </script>
   </body>
 </html>
