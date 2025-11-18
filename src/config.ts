@@ -154,7 +154,7 @@ export const siteConfig = {
 export function getSiteContent(lang: 'fr' | 'en' = 'en') {
   const content = {
     fr: {
-      title: "Etudiant en dernière année de Master Informatique axée sur l'IA et la Data Science",
+      title: "Étudiant en dernière année de Master Informatique axée sur l'IA et la Data Science",
       description: "Mon portfolio",
       aboutMe:
         "Étudiant en dernière année d'informatique, je cherche un stage de fin d'études en IA ou data science afin d'appliquer mes compétences en apprentissage automatique et analyse de données à des projets concrets. Je suis interessé par l'aéronautique, l'avionique, l'espace, l'intelligence artificielle, et l'energie.",
