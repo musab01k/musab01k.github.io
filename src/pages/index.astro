@@ -35,6 +35,17 @@ import "../styles/global.css";
       <Education />
     </section>
     <Footer />
+    
+    <!-- Mobile language toggle button (floating, bottom right) -->
+    <button
+      id="language-toggle-mobile"
+      class="fixed bottom-6 right-6 md:hidden z-50 bg-white shadow-lg rounded-full px-4 py-3 flex items-center gap-2 text-gray-700 hover:text-black transition-all duration-300 hover:shadow-xl border border-gray-200"
+      aria-label="Change language"
+    >
+      <span id="language-flag-mobile">🇫🇷</span>
+      <span id="language-display-mobile" class="font-bold">FR</span>
+    </button>
+    
     <script is:inline>
       // Content translation system
       const contentData = {
@@ -98,9 +109,10 @@ import "../styles/global.css";
         const content = contentData[lang];
         if (!content) return;
         
-        // Update title
-        const titleEl = document.querySelector('[data-content="title"]');
-        if (titleEl) titleEl.textContent = content.title;
+        // Update title (update all elements with this attribute)
+        document.querySelectorAll('[data-content="title"]').forEach((el) => {
+          el.textContent = content.title;
+        });
         
         // Update aboutMe
         const aboutEl = document.querySelector('[data-content="aboutMe"]');
@@ -157,6 +169,43 @@ import "../styles/global.css";
       window.addEventListener('contentupdate', (e) => {
         updateContent(e.detail.lang);
       });
+      
+      // Mobile language toggle button handler
+      const mobileLangToggle = document.getElementById('language-toggle-mobile');
+      if (mobileLangToggle) {
+        mobileLangToggle.addEventListener('click', () => {
+          const storedLang = localStorage.getItem('portfolio-language');
+          const currentLang = (storedLang === 'fr' || storedLang === 'en') ? storedLang : 'en';
+          const newLang = currentLang === 'fr' ? 'en' : 'fr';
+          
+          // Update localStorage
+          localStorage.setItem('portfolio-language', newLang);
+          document.documentElement.lang = newLang;
+          
+          // Trigger language change event (Header script will handle it)
+          window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: newLang } }));
+          window.dispatchEvent(new CustomEvent('contentupdate', { detail: { lang: newLang } }));
+        });
+      }
+      
+      // Sync mobile button with language changes
+      function updateMobileButton(lang) {
+        const langDisplay = document.getElementById('language-display-mobile');
+        const langFlag = document.getElementById('language-flag-mobile');
+        const targetLang = lang === 'fr' ? 'en' : 'fr';
+        if (langDisplay) langDisplay.textContent = targetLang.toUpperCase();
+        if (langFlag) langFlag.textContent = targetLang === 'fr' ? '🇫🇷' : '🇬🇧';
+      }
+      
+      // Listen for language changes to sync mobile button
+      window.addEventListener('languagechange', (e) => {
+        updateMobileButton(e.detail.lang);
+      });
+      
+      // Initialize mobile button
+      const storedLang = localStorage.getItem('portfolio-language');
+      const initialLang = (storedLang === 'fr' || storedLang === 'en') ? storedLang : 'en';
+      updateMobileButton(initialLang);
       
       // No initial update needed here - Header script handles it
     </script>

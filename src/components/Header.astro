@@ -134,6 +134,12 @@ const t = getTranslations('en' as Language);
     const targetLang = lang === 'fr' ? 'en' : 'fr';
     if (langDisplay) langDisplay.textContent = targetLang.toUpperCase();
     if (langFlag) langFlag.textContent = targetLang === 'fr' ? '🇫🇷' : '🇬🇧';
+    
+    // Also update mobile button if it exists
+    const mobileLangDisplay = document.getElementById('language-display-mobile');
+    const mobileLangFlag = document.getElementById('language-flag-mobile');
+    if (mobileLangDisplay) mobileLangDisplay.textContent = targetLang.toUpperCase();
+    if (mobileLangFlag) mobileLangFlag.textContent = targetLang === 'fr' ? '🇫🇷' : '🇬🇧';
   }
   
   function triggerContentUpdate(lang) {
