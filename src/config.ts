@@ -36,6 +36,14 @@ a dataset of collected email addresses.`,
           link: "https://github.com/musab01k/Battery-Life-Span",
           skills: ["Python", "Machine Learning", "matplotlib", "numpy", "pandas"],
         },
+        {
+          name: "Cyber-Physical Systems ML",
+          description: `Machine learning project for cyber-physical systems analysis and modeling.
+— Development of ML models for system behavior prediction and analysis.
+— Interactive visualization and analysis using Streamlit.`,
+          link: "https://github.com/musab01k/cyber-phys-ml",
+          skills: ["Python", "Machine Learning", "Streamlit", "Jupyter"],
+        },
       ],
       experience: [
         {
@@ -99,6 +107,14 @@ un dataset d'adresses e-mail collectées.`,
          prédire la durée de vie d'une batterie en fonction de ses caractéristiques.`,
           link: "https://github.com/musab01k/Battery-Life-Span",
           skills: ["Python", "Machine Learning", "matplotlib", "numpy", "pandas"],
+        },
+        {
+          name: "Systèmes Cyber-Physiques ML",
+          description: `Projet de machine learning pour l'analyse et la modélisation de systèmes cyber-physiques.
+— Développement de modèles ML pour la prédiction et l'analyse du comportement des systèmes.
+— Visualisation et analyse interactive avec Streamlit.`,
+          link: "https://github.com/musab01k/cyber-phys-ml",
+          skills: ["Python", "Machine Learning", "Streamlit", "Jupyter"],
         },
       ],
       experience: [
@@ -192,6 +208,15 @@ un dataset d'adresses e-mail collectées.`,
           link: "https://github.com/musab01k/Battery-Life-Span",
           skills: ["Python", "Machine Learning", "matplotlib", "numpy", "pandas"],
         },
+        {
+          name: "Systèmes Cyber-Physiques ML",
+          description:
+            `Projet de machine learning pour l'analyse et la modélisation de systèmes cyber-physiques.
+— Développement de modèles ML pour la prédiction et l'analyse du comportement des systèmes.
+— Visualisation et analyse interactive avec Streamlit.`,
+          link: "https://github.com/musab01k/cyber-phys-ml",
+          skills: ["Python", "Machine Learning", "Streamlit", "Jupyter"],
+        },
       ],
       experience: [
         {
@@ -259,6 +284,15 @@ a dataset of collected email addresses.`,
          predicting battery lifespan based on its characteristics.`,
           link: "https://github.com/musab01k/Battery-Life-Span",
           skills: ["Python", "Machine Learning", "matplotlib", "numpy", "pandas"],
+        },
+        {
+          name: "Cyber-Physical Systems ML",
+          description:
+            `Machine learning project for cyber-physical systems analysis and modeling.
+— Development of ML models for system behavior prediction and analysis.
+— Interactive visualization and analysis using Streamlit.`,
+          link: "https://github.com/musab01k/cyber-phys-ml",
+          skills: ["Python", "Machine Learning", "Streamlit", "Jupyter"],
         },
       ],
       experience: [
