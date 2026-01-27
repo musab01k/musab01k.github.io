@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy": "npm run build && rm -rf _astro && cp docs/index.html index.html && cp -r docs/_astro _astro && cp docs/favicon.svg favicon.svg && cp docs/Cover.jpg Cover.jpg && cp docs/cover2.jpg cover2.jpg",
     "preview": "astro preview",
     "astro": "astro"
   },
