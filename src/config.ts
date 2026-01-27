@@ -134,7 +134,7 @@ un dataset d'adresses e-mail collectées.`,
 })();
 
 export const siteConfig = {
-  name: "Musab Karatas",
+  name: "Musab KAAAAratas",
   accentColor: "#1d4ed8",
   social: {
     email: "musab01.k@gmail.com",
